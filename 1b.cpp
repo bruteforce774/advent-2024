@@ -5,6 +5,17 @@
 #include <string>
 #include <vector>
 
+// 2. For each number in the left vector, count how many times it appears in
+// the right vector
+
+std::vector<int> get_counts(const std::vector<int>& left, const std::vector<int>& right) {
+    std::vector<int> counts;
+    for (int value : left) {
+        counts.push_back(std::count(right.begin(), right.end(), value));
+    }
+    return counts;
+}
+
 int main() {
   std::vector<int> left, right;
   std::regex pattern(R"((\d+)\s+(\d+))");
@@ -17,10 +28,8 @@ int main() {
       left.push_back(std::stoi(match[1]));
       right.push_back(std::stoi(match[2]));
     }
-  }
 
-  // 2. For each number in the left vector, count how many times it appears in
-  // the right vector
+  }
 
   // 3. For each such number, multiply the left number by its count in the right
   // vector
