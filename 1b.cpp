@@ -28,11 +28,15 @@ int main() {
       left.push_back(std::stoi(match[1]));
       right.push_back(std::stoi(match[2]));
     }
-
   }
 
   // 3. For each such number, multiply the left number by its count in the right
   // vector
+  std::vector<int> counts = get_counts(left, right);
+  std::vector<int> products;
+  for (int i = 0; i < left.size(); ++i) {
+    products.push_back(left[i] * counts[i]);
+  }
 
   // 4. Sum all these products to get the similarity score
 
