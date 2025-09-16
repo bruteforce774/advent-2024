@@ -30,17 +30,18 @@ int main() {
     }
   }
 
-  // 3. For each such number, multiply the left number by its count in the right
-  // vector
   std::vector<int> counts = get_counts(left, right);
   std::vector<int> products;
   for (int i = 0; i < left.size(); ++i) {
     products.push_back(left[i] * counts[i]);
   }
 
-  // 4. Sum all these products to get the similarity score
+  int similarity_score = 0;
+  for(int product: products) {
+    similarity_score += product;
+  }
 
-  // 5. Output the similarity score
+  std::cout << "Similarity score: " << similarity_score << std::endl;
 
   // 6. (Optional) Optimize counting with a hash map for the right vector
 }
